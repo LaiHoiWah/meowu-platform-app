@@ -1,15 +1,19 @@
+import '@ant-design/v5-patch-for-react-19';
 import React, { Component } from 'react';
-import Button from 'antd/lib/button';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomePage from './page/homepage/HomePage';
+import LoginPage from './page/loginpage/LoginPage';
 import './App.css';
 
-class App extends Component{
-  render(){
+function App(){
     return (
-      <div className="App">
-        <Button type="primary">Button</Button>
-      </div>
+      <Router>
+        <Routes>
+          <Route path="/homepage" element={<HomePage/>}/>
+        </Routes>
+      </Router>
     );
-  }
+
 }
 
 export default App;
