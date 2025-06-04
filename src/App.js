@@ -1,15 +1,21 @@
 import '@ant-design/v5-patch-for-react-19';
-import React, { Component } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import HomePage from './page/homepage/HomePage';
-import LoginPage from './page/loginpage/LoginPage';
+import LoginPage from './component/page/login/LoginPage';
+import DashboardPage from './component/page/dashboard/DashboardPage';
+import HomePage from './component/page/home/HomePage';
+import GeneralCodePage from './component/page/generalcode/GeneralCodePage';
 import './App.css';
+
 
 function App(){
     return (
       <Router>
         <Routes>
-          <Route path="/homepage" element={<HomePage/>}/>
+          <Route path="/" element={<LoginPage/>}/>
+          <Route path="/dashboard" element={<DashboardPage/>}>
+            <Route path="/dashboard/home" element={<HomePage/>}/>
+            <Route path="/dashboard/generalCode" element={<GeneralCodePage/>}/>
+          </Route>
         </Routes>
       </Router>
     );
